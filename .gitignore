@@ -1,0 +1,18 @@
+# Generated data files
+rawdata.csv
+products.csv
+
+# Backups
+*.bak
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db

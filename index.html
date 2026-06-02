@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watsons Price Comparison</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>Price Comparison</h1>
+      <p>Watsons Prices - Singapore vs Johor Bahru</p>
+    </div>
+    <div class="currency-selector">
+      <button id="currency-btn" class="currency-btn">SGD</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro-card">
+      <h2>🛒 Shop smarter on your next trip across the Causeway</h2>
+      <p>Quickly compare Watsons prices in Singapore and Johor Bahru so you can spot the best buys, save cash, and pack smarter for your weekend run! 💰💵</p>
+    </section>
+
+    <section class="table-card">
+      <div class="table-header">
+        <h3>Product Price Comparison</h3>
+        <span id="last-updated" class="last-updated">Loading...</span>
+      </div>
+      <div class="controls">
+        <div class="control-group control-group--search">
+          <label for="search-input" class="sr-only">Search products</label>
+          <div class="search-field">
+            <input id="search-input" type="search" placeholder="Search product names..." aria-label="Search product names" />
+            <span class="search-icon" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="control-group control-group--compact">
+          <select id="page-size-select" aria-label="Products per page">
+            <option value="10">10 per page</option>
+            <option value="20">20 per page</option>
+            <option value="30">30 per page</option>
+            <option value="40">40 per page</option>
+            <option value="50">50 per page</option>
+          </select>
+        </div>
+        <div class="control-group control-group--pagination">
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table id="price-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Store</th>
+              <th>Singapore Price</th>
+              <th>Johor Bahru Price</th>
+              <th>Price Difference</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Save on the right items between SG and JB with fast and friendly price insights.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

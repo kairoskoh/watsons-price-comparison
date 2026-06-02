@@ -1,0 +1,290 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+header {
+  background: radial-gradient(circle at top, rgba(255,255,255,0.12), transparent 30%),
+    linear-gradient(135deg, #102a43 0%, #243b55 45%, #486581 100%);
+  color: #f8fafc;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.currency-selector {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.currency-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.currency-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.currency-btn.active {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: #fff;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.brand p {
+  margin: 0.75rem auto 0;
+  max-width: 42rem;
+  line-height: 1.6;
+}
+
+main {
+  padding: 2rem 1.5rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.intro-card,
+.table-card,
+.summary-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 1.75rem;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.08);
+  margin-bottom: 1.75rem;
+}
+
+.table-card h3 {
+  margin-top: 0;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.table-header h3 {
+  margin: 0;
+}
+
+.last-updated {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(140px, 200px) auto;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  align-items: center;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-group--search {
+  min-width: 320px;
+}
+
+.control-group--compact select {
+  width: 12rem;
+}
+
+input[type="search"],
+select {
+  appearance: none;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  background: #f9fafb;
+  color: #111827;
+}
+
+.search-field {
+  position: relative;
+}
+
+.search-field input {
+  width: 100%;
+  padding-right: 3rem;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 1rem;
+  height: 1rem;
+  transform: translateY(-50%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%239ca3af'%3E%3Cpath fill-rule='evenodd' d='M12.9 14.32a8 8 0 111.414-1.414l3.386 3.386a1 1 0 01-1.414 1.414l-3.386-3.386zM14 8a6 6 0 11-12 0 6 6 0 0112 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+select {
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath d='M5.23 8.27a.75.75 0 011.06-1.06L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.23 8.27z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 0.75rem;
+}
+
+select.select-open {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath d='M5.23 11.73a.75.75 0 001.06 1.06L10 9.06l3.71 3.73a.75.75 0 101.06-1.06l-4.24-4.24a.75.75 0 00-1.06 0L5.23 11.73z'/%3E%3C/svg%3E");
+}
+
+.control-group--pagination {
+  justify-self: end;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.page-btn {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #111827;
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  border-color: #4f46e5;
+  background: #eef2ff;
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-info {
+  color: #4b5563;
+  font-weight: 700;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+th,
+td {
+  padding: 1rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  background: #f8fafc;
+  font-weight: 700;
+  color: #111827;
+}
+
+tbody tr:hover {
+  background: rgba(59, 130, 246, 0.06);
+}
+
+tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.jb-cheaper {
+  color: #10b981;
+  font-weight: 600;
+}
+
+summary-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+summary-card li {
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+footer {
+  text-align: center;
+  color: #6b7280;
+  padding-bottom: 2rem;
+}
+
+@media (max-width: 640px) {
+  main {
+    padding: 1.5rem 1rem 2rem;
+  }
+  .intro-card,
+  .table-card,
+  .summary-card {
+    padding: 1.25rem;
+  }
+}
