@@ -278,6 +278,23 @@ footer {
   padding-bottom: 2rem;
 }
 
+.footer-repo {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.footer-repo a {
+  color: #9ca3af;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-repo a:hover {
+  color: #6b7280;
+  border-bottom-color: #9ca3af;
+}
+
 @media (max-width: 640px) {
   main {
     padding: 1.5rem 1rem 2rem;
