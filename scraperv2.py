@@ -109,6 +109,12 @@ _UI_PATTERNS = [
 ]
 
 
+_PROMO_STRIP_RE = re.compile(
+    r'(SGD|S\$|RM|MYR|\$)\s?\d+(?:\.\d{1,2})?\s+off\s+(SGD|S\$|RM|MYR|\$)?\s?\d+(?:\.\d{1,2})?',
+    re.I
+)
+
+
 def is_valid_product(name, price):
     if not name or not price:
         return False
@@ -205,6 +211,9 @@ def parse_jsonld(soup):
 def extract_price(text):
     if not text:
         return None
+    # Strip promotional "X off Y" patterns, e.g. "$38 off $196", before extracting
+    # the real product price — otherwise the discount amount gets mistaken for the price.
+    text = _PROMO_STRIP_RE.sub('', text)
     m = re.search(r'(SGD|S\$|RM|MYR|\$)\s?([0-9]+(?:\.[0-9]{1,2})?)', text)
     if m:
         return m.group(0)
@@ -224,7 +233,7 @@ def parse_product_cards(soup, base_url=None):
             pass
     seen = set()
     for c in candidates:
-        text = c.get_text(' ', strip=True)
+        text = _PROMO_STRIP_RE.sub('', c.get_text(' ', strip=True))
         if not text or len(text) < 5:
             continue
         a_tag = c.find('a', href=True)

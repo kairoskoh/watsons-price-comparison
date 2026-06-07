@@ -112,8 +112,8 @@ main {
 }
 
 .controls {
-  display: grid;
-  grid-template-columns: minmax(320px, 1fr) minmax(140px, 200px) auto;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1.75rem;
   align-items: center;
@@ -126,7 +126,12 @@ main {
 }
 
 .control-group--search {
-  min-width: 320px;
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.control-group--compact {
+  flex: 0 0 auto;
 }
 
 .control-group--compact select {
@@ -178,7 +183,9 @@ select.select-open {
 }
 
 .control-group--pagination {
-  justify-self: end;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .pagination {
@@ -303,5 +310,16 @@ footer {
   .table-card,
   .summary-card {
     padding: 1.25rem;
+  }
+  .control-group--search,
+  .control-group--compact,
+  .control-group--pagination {
+    flex: 1 1 100%;
+  }
+  .control-group--compact select {
+    width: 100%;
+  }
+  .control-group--pagination {
+    justify-content: center;
   }
 }
